@@ -1,9 +1,10 @@
 package status
 
+// Enum is a pseudo-enum type, that should not be constructed from bare integers.
 type Enum int
 
 const (
-	// private zero-value to catch uninitialized variables
+	// private zero-value to denote an uninitialized variable
 	unspecified Enum = iota
 	// Reachable - device is connected and responsive
 	Reachable
@@ -42,7 +43,7 @@ func (e Enum) String() string {
 }
 
 // IsAnyOf returns true if this enum is one of the target values.
-func (e Enum) IsAnyOf(values []Enum) bool {
+func (e Enum) IsAnyOf(values ...Enum) bool {
 	for _, val := range values {
 		if e == val {
 			return true

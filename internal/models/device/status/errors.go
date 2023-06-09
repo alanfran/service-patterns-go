@@ -3,7 +3,7 @@ package status
 type Error int
 
 // Declaring errors as const integers makes them immutable,
-// so your sentinel values don't get replaced and break error handling.
+// so your sentinel values can not be replaced at runtime and break error handling.
 const (
 	errorUnspecified Error = iota
 	ErrorCouldNotParse
